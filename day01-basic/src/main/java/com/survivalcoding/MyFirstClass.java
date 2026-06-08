@@ -8,6 +8,6 @@ public class MyFirstClass {
 
         String name = "이인준";
 
-        System.out.println("hello");
+        System.out.println("hello" + name);
     }
 }

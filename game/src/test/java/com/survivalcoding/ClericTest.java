@@ -16,7 +16,7 @@ class ClericTest {
         cleric.hp = 20;
 
         // when (실행)
-        cleric.SelfAid();
+        cleric.selfAid();
 
         // then (검증)
         assertEquals(50, cleric.hp);
@@ -29,7 +29,7 @@ class ClericTest {
         final Cleric cleric = new Cleric("Anduin");
 
         // when
-        cleric.SelfAid();
+        cleric.selfAid();
 
         // then
         assertEquals(5, cleric.mp);
@@ -43,7 +43,7 @@ class ClericTest {
         cleric.mp = 0;
 
         // when
-        int rec_mp = cleric.Pray(3);
+        int rec_mp = cleric.pray(3);
 
         // then (3초 기도 → 회복량은 3~5)
         assertTrue(rec_mp >= 3 && rec_mp <= 5);
@@ -56,7 +56,7 @@ class ClericTest {
         final Cleric cleric = new Cleric("Anduin"); // mp = 10 (이미 최대)
 
         // when
-        int recovered = cleric.Pray(3);
+        int recovered = cleric.pray(3);
 
         // then
         assertEquals(0, recovered);
@@ -79,7 +79,7 @@ class ClericTest {
     void constructor_name_hp() {
 
         final Cleric cleric = new Cleric("Anduin", 35);
-        
+
         assertEquals("Anduin", cleric.name);
         assertEquals(35, cleric.hp);
         assertEquals(Cleric.MAX_MP, cleric.mp);

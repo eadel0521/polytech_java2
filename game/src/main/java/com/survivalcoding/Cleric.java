@@ -27,12 +27,12 @@ public class Cleric {
         this(name, MAX_HP);  // B) 생성자 호출
     }
 
-    void SelfAid() {
+    void selfAid() {
         mp -= 5;
         hp = MAX_HP;
     }
 
-    int Pray(int time) {
+    int pray(int time) {
         Random rand = new Random();
         int rec_mp = time + rand.nextInt(3);
 

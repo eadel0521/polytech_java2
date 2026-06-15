@@ -15,7 +15,6 @@ public class Wizard {
             hp = 0;
         }
         this.hp = hp;
-
     }
 
     public int getMp() {

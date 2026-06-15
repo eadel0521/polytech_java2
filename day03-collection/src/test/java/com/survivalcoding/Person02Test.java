@@ -13,7 +13,7 @@ class MainTest {
     @Test
     @DisplayName("Map stores name-age pairs and retrieves age by name")
     void storingNameAndAgeInMap_allowsRetrievingAgeByName() {
-        // given
+
         Person02 hong = new Person02("Hong");
         Person02 han = new Person02("Han");
 
@@ -21,7 +21,6 @@ class MainTest {
         ages.put(hong.name, 20);
         ages.put(han.name, 25);
 
-        // when, then
         assertEquals(20, ages.get("Hong"));
         assertEquals(25, ages.get("Han"));
         assertEquals(2, ages.size());

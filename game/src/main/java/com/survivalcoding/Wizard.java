@@ -11,7 +11,11 @@ public class Wizard {
     }
 
     public void setHp(int hp) {
+        if (hp < 0) {
+            hp = 0;
+        }
         this.hp = hp;
+
     }
 
     public int getMp() {
@@ -19,6 +23,9 @@ public class Wizard {
     }
 
     public void setMp(int mp) {
+        if (mp < 0) {
+            throw new IllegalArgumentException("MP must be over 0.");
+        }
         this.mp = mp;
     }
 
@@ -27,6 +34,9 @@ public class Wizard {
     }
 
     public void setName(String name) {
+        if (name == null || name.length() < 3) {
+            throw new IllegalArgumentException("Null and under 3 characters are not allowed for name.");
+        }
         this.name = name;
     }
 
@@ -35,6 +45,9 @@ public class Wizard {
     }
 
     public void setWand(Wand wand) {
+        if (wand == null) {
+            throw new IllegalArgumentException("Null is not allowed for wand.");
+        }
         this.wand = wand;
     }
 

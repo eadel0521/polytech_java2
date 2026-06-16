@@ -1,0 +1,74 @@
+@startuml
+
+class Hero {
+    - String name
+    - int hp
+    - int maxHp
+    + getName() : String
+    + setName(String) : void
+    + getHp() : int
+    + setHp(int) : void
+    + getMaxHp() : int
+    + setMaxHp(int) : void
+}
+
+class Cleric {
+    + int mp
+    + heal(Hero) : void
+}
+
+class Wizard {
+    - int hp
+    - int mp
+    - String name
+    - Wand wand
+    + getHp() : int
+    + setHp(int) : void
+    + getMp() : int
+    + setMp(int) : void
+    + getName() : String
+    + setName(String) : void
+    + getWand() : Wand
+    + setWand(Wand) : void
+    + heal(Hero) : void
+}
+
+class GreatWizard {
+    + heal(Hero) : void
+    + superHeal(Hero) : void
+}
+
+class Wand {
+    - String name
+    - double power
+    + getName() : String
+    + setName(String) : void
+    + getPower() : double
+    + setPower(double) : void
+}
+
+class Slime {
+    + String suffix
+    + int hp
+    + attack(Hero) : void
+}
+
+class PoisonSlime {
+    - int poisonCount
+    + attack(Hero) : void
+}
+
+' 상속 관계
+Hero <|-- Cleric
+Wizard <|-- GreatWizard
+Slime <|-- PoisonSlime
+
+' 연관 관계
+Wizard --> Wand : has
+PoisonSlime ..> Hero : attacks
+Slime ..> Hero : attacks
+Cleric ..> Hero : heals
+Wizard ..> Hero : heals
+GreatWizard ..> Hero : superHeals
+
+@enduml

@@ -76,4 +76,19 @@ class WizardTest {
 
         assertEquals(wand, wizard.getWand());
     }
+
+    @Test
+    @DisplayName("heal prints mana insufficient message when mp is under 10")
+    void heal_prints_insufficient_message_when_mp_under_10() {
+
+        Wizard wizard = new Wizard();
+        wizard.setMp(5);
+        Hero hero = new Hero();
+        hero.setHp(50);
+
+        wizard.heal(hero);
+
+        assertEquals(50, hero.getHp()); // hp 변화 없음
+        assertEquals(5, wizard.getMp()); // mp 변화 없음
+    }
 }

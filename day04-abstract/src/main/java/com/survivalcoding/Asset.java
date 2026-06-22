@@ -1,6 +1,18 @@
 package com.survivalcoding;
 
-abstract class TangibleAsset {
+abstract class Asset {
+
+}
+
+abstract class IntangibleAsset extends Asset {
+
+}
+
+class Patent extends IntangibleAsset {
+
+}
+
+abstract class TangibleAsset extends Asset {
     String name;
     int price;
     String color;

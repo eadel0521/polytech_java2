@@ -1,0 +1,15 @@
+package com.survivalcoding;
+
+abstract class TangibleAsset {
+    String name;
+    int price;
+    String color;
+}
+
+class Book extends TangibleAsset {
+    String isbn;
+}
+
+class Computer extends TangibleAsset {
+    String makerName;
+}

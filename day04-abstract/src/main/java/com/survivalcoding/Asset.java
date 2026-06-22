@@ -12,10 +12,21 @@ class Patent extends IntangibleAsset {
 
 }
 
-abstract class TangibleAsset extends Asset {
+abstract class TangibleAsset extends Asset implements Thing{
     String name;
     int price;
     String color;
+    private double weight;
+
+    @Override
+    public double getWeight(){
+        return weight;
+    }
+
+    @Override
+    public void setWeight(double weight){
+        this.weight = weight;
+    }
 }
 
 class Book extends TangibleAsset {

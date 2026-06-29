@@ -1,0 +1,92 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+skinparam ranksep 200
+
+
+class GameEntity{
+    int Hp
+    String Name
+}
+abstract class Unit
+abstract class Structure
+abstract class Mechanic
+abstract class Bionic
+abstract class BionicUnit
+abstract class BionicStructure
+abstract class MechanicUnit
+abstract class MechanicStructure
+abstract class Zerg
+abstract class Terran
+abstract class Protoss
+abstract class Tribe
+abstract class ZergUnit
+class ZergStructure
+abstract class TerranUnit
+class TerranStructure
+abstract class ProtossUnit
+class ProtossStructure
+class Marine
+class Medic
+class SCV
+class Tank
+class Vulture
+class Zealot
+class Dragoon
+class Hydra
+class Zergling
+
+
+ZergUnit <-- Zergling
+ZergUnit <-- Hydra
+Bionic <-- ZergUnit
+BionicStructure <-- ZergStructure
+BionicUnit <-- Marine
+BionicUnit <-- Medic
+BionicUnit <-- Hydra
+BionicUnit <-- Zergling
+BionicUnit <-- Zealot
+BionicUnit <-- SCV
+Bionic <-- BionicUnit
+Bionic <-- BionicStructure
+MechanicStructure <-- ProtossStructure
+MechanicStructure <-- TerranStructure
+Terran <-- TerranUnit
+Terran <-- TerranStructure
+Unit <-- TerranUnit
+Unit <-- ZergUnit
+Unit <-- ProtossUnit
+Unit <-- BionicUnit
+Unit <-- MechanicUnit
+ProtossUnit <-- Dragoon
+ProtossUnit <-- Zealot
+MechanicUnit <-- Vulture
+MechanicUnit <-- Tank
+MechanicUnit <-- Dragoon
+Structure <-- BionicStructure
+Structure <-- MechanicStructure
+Protoss <-- ProtossUnit
+Protoss <-- ProtossStructure
+Zerg <-- ZergUnit
+Zerg <-- ZergStructure
+Mechanic <-- MechanicStructure
+Mechanic <-- MechanicUnit
+GameEntity <-- Bionic
+GameEntity <-- Mechanic
+GameEntity <-- Unit
+GameEntity <-- Structure
+GameEntity <-- Tribe
+Tribe <-- Zerg
+Tribe <-- Terran
+Tribe <-- Protoss
+TerranUnit <-- Marine
+TerranUnit <-- Medic
+TerranUnit <-- Tank
+TerranUnit <-- SCV
+TerranUnit <-- Vulture
+
+
+
+
+
+@enduml

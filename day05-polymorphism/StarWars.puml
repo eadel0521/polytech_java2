@@ -1,0 +1,100 @@
+@startuml
+
+skinparam ranksep 200
+
+interface Bionic
+interface Mechanic
+interface Zerg {
+    + regenerate() : void
+}
+interface Terran
+interface Protoss {
+    + shieldHp : int
+    + rechargeShield() : void
+}
+interface ZergUnit
+interface TerranUnit
+interface ProtossUnit
+interface Repairable {
+    + receiveRepair() : void
+}
+
+class GameEntity {
+    int Hp
+    String Name
+}
+abstract class Unit
+abstract class Structure
+abstract class BionicUnit
+abstract class BionicStructure
+abstract class MechanicUnit
+abstract class MechanicStructure
+class ZergStructure
+class TerranStructure
+class ProtossStructure
+class Marine
+class Medic {
+    + heal(target : BionicUnit) : void
+}
+class SCV {
+    + repair(target : Repairable) : void
+}
+class Tank
+class Vulture
+class Zealot
+class Dragoon
+class Hydra
+class Zergling
+
+GameEntity <|-- Unit
+GameEntity <|-- Structure
+
+Unit <|-- BionicUnit
+Unit <|-- MechanicUnit
+Structure <|-- BionicStructure
+Structure <|-- MechanicStructure
+
+Bionic <|.. BionicUnit
+Bionic <|.. BionicStructure
+Mechanic <|.. MechanicUnit
+Mechanic <|.. MechanicStructure
+
+Zerg <|.. ZergUnit
+Zerg <|.. ZergStructure
+Terran <|.. TerranUnit
+Terran <|.. TerranStructure
+Protoss <|.. ProtossUnit
+Protoss <|.. ProtossStructure
+
+BionicUnit <|-- Marine
+BionicUnit <|-- Medic
+BionicUnit <|-- SCV
+BionicUnit <|-- Zergling
+BionicUnit <|-- Hydra
+BionicUnit <|-- Zealot
+
+MechanicUnit <|-- Tank
+MechanicUnit <|-- Vulture
+MechanicUnit <|-- Dragoon
+
+BionicStructure <|-- ZergStructure
+
+MechanicStructure <|-- TerranStructure
+MechanicStructure <|-- ProtossStructure
+
+ZergUnit <|.. Zergling
+ZergUnit <|.. Hydra
+
+TerranUnit <|.. Marine
+TerranUnit <|.. Medic
+TerranUnit <|.. SCV
+TerranUnit <|.. Tank
+TerranUnit <|.. Vulture
+
+ProtossUnit <|.. Zealot
+ProtossUnit <|.. Dragoon
+
+Repairable <|.. Mechanic
+Repairable <|.. SCV
+
+@enduml

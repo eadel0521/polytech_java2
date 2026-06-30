@@ -1,4 +1,5 @@
 package com.survivalcoding;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
@@ -37,18 +38,23 @@ public class Book implements Comparable<Book>, Cloneable {
         this.comment = comment;
     }
 
+    private String getDateOnly(Date date) {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        return format.format(date);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Book)) return false;
         Book book = (Book) o;
         return Objects.equals(title, book.title)
-                && Objects.equals(publishDate, book.publishDate);
+                && getDateOnly(this.publishDate).equals(getDateOnly(book.publishDate));
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, publishDate);
+        return Objects.hash(title, getDateOnly(publishDate));
     }
 
     @Override

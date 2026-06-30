@@ -1,0 +1,21 @@
+# 2026-06-30 instance control
+
+## 오늘 배운 내용
+- hashCode()를 equals()와 함께 오버라이드해야 하는 이유
+- 얕은 복사와 깊은 복사의 차이
+- Cloneable 인터페이스를 활용한 clone() 구현
+
+## 기억할 것
+- equals()를 오버라이드하면 hashCode()도 반드시 같이 오버라이드해야 함 (HashSet, HashMap 등에서 정상 동작)
+- 얕은 복사는 super.clone()만 호출, 참조 타입 필드는 원본과 같은 객체를 공유
+- 깊은 복사는 참조 타입 필드까지 별도로 clone() 해줘야 완전히 독립된 객체가 됨
+
+## 어려웠던 점
+- compareTo()를 구현할 때 Date 타입끼리 부등호(>, <)로 직접 비교가 안 됨
+
+## 해결 방법
+- Date.getTime()으로 long(밀리초) 값을 꺼내서 long끼리 부등호로 비교
+
+## 내일 더 공부할 것
+- instanceof와 함께 쓰이는 패턴 변수(Pattern Variable) 문법
+- Long.compare()를 활용해서 compareTo()를 더 간결하게 작성하는 방법
